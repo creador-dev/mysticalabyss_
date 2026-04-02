@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { instagramUrl, products } from "./data/products";
+import { reels } from "./data/reels";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,13 @@ function App() {
 
   const featuredProduct = products[2];
   const instagramPreview = products.slice(2, 5);
+  const latestReels = reels.slice(0, 6);
+  const formatViews = (views) => new Intl.NumberFormat("en-IN").format(views);
+  const formatDate = (timestamp) =>
+    new Date(timestamp * 1000).toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short"
+    });
 
   return (
     <div className="page-shell">
@@ -38,7 +46,6 @@ function App() {
           <nav className="nav-links" aria-label="Primary">
             <a href="#products">Show Products</a>
             <a href="#instagram">Instagram</a>
-            <a href="#shop">Show Products</a>
           </nav>
         </div>
       </header>
@@ -184,6 +191,47 @@ function App() {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section" id="reels">
+          <div className="container">
+            <div className="section-head reveal">
+              <div>
+                <div className="pill">Latest Reels</div>
+                <h2>Fresh from mysticalabyss_</h2>
+              </div>
+              <p>
+                The six latest public reels from the account, styled like a feed and linked
+                straight to Instagram.
+              </p>
+            </div>
+
+            <div className="reels-grid">
+              {latestReels.map((reel, index) => (
+                <a
+                  className="reel-card reveal"
+                  key={reel.shortcode}
+                  href={reel.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ transitionDelay: `${index * 70}ms` }}
+                >
+                  <div className="reel-media">
+                    <img src={reel.thumbnail} alt={reel.caption} />
+                    <span className="play-badge">▶ Reel</span>
+                  </div>
+                  <div className="reel-content">
+                    <div className="reel-meta">
+                      <span>{formatDate(reel.timestamp)}</span>
+                      <span>{formatViews(reel.views)} views</span>
+                    </div>
+                    <p>{reel.caption}</p>
+                    <strong>Watch on Instagram</strong>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
