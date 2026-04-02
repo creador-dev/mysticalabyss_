@@ -36,9 +36,9 @@ function App() {
             </div>
           </a>
           <nav className="nav-links" aria-label="Primary">
-            <a href="#products">Products</a>
+            <a href="#products">Show Products</a>
             <a href="#instagram">Instagram</a>
-            <a href="#shop">Shop</a>
+            <a href="#shop">Show Products</a>
           </nav>
         </div>
       </header>
@@ -57,7 +57,7 @@ function App() {
                   </p>
                   <div className="hero-actions">
                     <a className="button primary" href="#products">
-                      Shop Bestsellers
+                      Show Products
                     </a>
                     <a className="button secondary" href={instagramUrl} target="_blank" rel="noreferrer">
                       Visit Instagram
@@ -164,7 +164,7 @@ function App() {
                       Open Instagram Profile
                     </a>
                     <a className="button secondary" href="#shop">
-                      Explore More Products
+                      Show Products
                     </a>
                   </div>
                 </div>
@@ -193,7 +193,7 @@ function App() {
             <div className="cta-card reveal">
               <div className="cta-grid">
                 <div className="cta-content">
-                  <div className="pill">Shop The Full Edit</div>
+                  <div className="pill">Show Products</div>
                   <h2>Make every product tap feel intentional</h2>
                   <p>
                     A mobile-first, premium bio page that keeps attention high and makes
@@ -201,10 +201,10 @@ function App() {
                   </p>
                   <div className="cta-actions">
                     <a className="button primary" href="#products">
-                      Shop Now
+                      Show Products
                     </a>
                     <a className="button secondary" href={instagramUrl} target="_blank" rel="noreferrer">
-                      Follow On Instagram
+                      Follow mysticalabyss_ for more
                     </a>
                   </div>
                 </div>
