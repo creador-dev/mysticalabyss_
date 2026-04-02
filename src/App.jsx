@@ -202,25 +202,23 @@ function App() {
                 <div className="pill">Latest Reels</div>
                 <h2>Fresh from mysticalabyss_</h2>
               </div>
-              <p>
-                The six latest public reels from the account, styled like a feed and linked
-                straight to Instagram.
-              </p>
             </div>
 
             <div className="reels-grid">
               {latestReels.map((reel, index) => (
-                <a
+                <article
                   className="reel-card reveal"
                   key={reel.shortcode}
-                  href={reel.url}
-                  target="_blank"
-                  rel="noreferrer"
                   style={{ transitionDelay: `${index * 70}ms` }}
                 >
                   <div className="reel-media">
-                    <img src={reel.thumbnail} alt={reel.caption} />
-                    <span className="play-badge">▶ Reel</span>
+                    <iframe
+                      src={`https://www.instagram.com/reel/${reel.shortcode}/embed`}
+                      title={`Instagram reel ${reel.shortcode}`}
+                      loading="lazy"
+                      allowTransparency="true"
+                      allow="encrypted-media"
+                    />
                   </div>
                   <div className="reel-content">
                     <div className="reel-meta">
@@ -228,9 +226,11 @@ function App() {
                       <span>{formatViews(reel.views)} views</span>
                     </div>
                     <p>{reel.caption}</p>
-                    <strong>Watch on Instagram</strong>
+                    <a href={reel.url} target="_blank" rel="noreferrer">
+                      Watch on Instagram
+                    </a>
                   </div>
-                </a>
+                </article>
               ))}
             </div>
           </div>
